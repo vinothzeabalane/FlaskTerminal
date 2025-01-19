@@ -25,7 +25,7 @@ def connect():
         ssh_client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
         ssh_client.connect(hostname, username=username, password=password)
         ssh_sessions[request.remote_addr] = ssh_client
-        return jsonify({"status": "success", "message": f"Connected to {hostname}"})
+        return jsonify({"status": "success", "message": f"Connected to {hostname}, press enter to continue"})
     except Exception as e:
         return jsonify({"status": "error", "message": str(e)})
 
